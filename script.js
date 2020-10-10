@@ -38,7 +38,9 @@ $( document ).ready(function() {
                 var humidity = response.main.humidity;
                 $(".humidity").html("Humidity: " + humidity + " % ");
                 var temperature = response.main.temp;
-                $(".temperature").html("Temperature: " + temperature);
+                var temperature = (Math.floor(temperature - 273.15)*1.80+32);
+                
+                $(".temperature").html("Temperature: " + temperature + "&#8457");
                 var windSpeed = response.wind.speed;
                 $(".windSpeed").html("Wind Speed: " + windSpeed + " MPH ");
                 $("#currentCityName").append(cityP,icon);
