@@ -23,20 +23,25 @@ $( document ).ready(function() {
             method: "GET"
         })
         .then(function(response) {
-            
+            console.log(response)
             $(".temperature").html("");
             $(".humidity").html("");
+            $(".windSpeed").html("");
             var cityName = response.name;
            
 
             var cityP = $("<p>").text(response.name)
-           
+            // console.log(response.weather[0].icon)
             var icon = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
 
             if (cityName.length>1){
                 var humidity = response.main.humidity;
-                $(".humidity").html("Humidity: " + humidity);
-              
+                $(".humidity").html("Humidity: " + humidity + " % ");
+                var temperature = response.main.temp;
+                $(".temperature").html("Temperature: " + temperature);
+                var windSpeed = response.wind.speed;
+                $(".windSpeed").html("Wind Speed: " + windSpeed + " MPH ");
+                $("#currentCityName").append(cityP,icon);
             }
 
           
@@ -47,9 +52,9 @@ $( document ).ready(function() {
     function getStorage() {
         $(".city-area").empty();
         cityArr = JSON.parse(localStorage.getItem("cities")) 
-        
+        // console.log(cityArr)
         var noDuplicates = [...new Set(cityArr)]
-        console.log(noDuplicates)
+        // console.log(noDuplicates)
         for(var i=0; i<noDuplicates.length; i++) {
             if (noDuplicates[i].length>0){
                 var cityBtn= $("<button>").text(noDuplicates[i]).addClass("city-btn")
@@ -59,7 +64,7 @@ $( document ).ready(function() {
         }
     }
     $(document).on("click",".city-btn",function() {
-       
+        // console.log($(this).text())
        getWeather($(this).text());
     })
     getStorage();
