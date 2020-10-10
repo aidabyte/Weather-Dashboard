@@ -33,7 +33,12 @@ $( document ).ready(function() {
            
             var icon = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
 
-         
+            if (cityName.length>1){
+                var humidity = response.main.humidity;
+                $(".humidity").html("Humidity: " + humidity);
+              
+            }
+
           
 
         })
