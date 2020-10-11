@@ -5,8 +5,19 @@
     color: white;
 }
 
+
+
 .color{
-    background-color: cornflowerblue;
+    background-color: rgb(52, 136, 204);
     
 
 }
+
+.bodys{
+    background-color: rgb(52, 136, 204);
+}
+
+.currentDay {
+    font-size: larger;
+}
+

@@ -1,8 +1,21 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-    
+
+    var currentDate = ("#currentDay")
     var cityArr 
     
+
+
+
+
+    $("#currentDay").text(moment());
+    setInterval(displayTodaysDateAndTime, 1000)
+    currentDate = $("#currentDay");
+    displayTodaysDateAndTime();
+    function displayTodaysDateAndTime() {
+    currentDate.text(moment().format('L'));
+    }
+
+    
+ 
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
@@ -17,6 +30,7 @@ $( document ).ready(function() {
 
         getWeather(city);
     });
+
     
     function getWeather(city) {
         $("#currentCityName").empty();
@@ -83,7 +97,7 @@ $( document ).ready(function() {
     })
     getStorage();
 
-});
+
 
 
 
