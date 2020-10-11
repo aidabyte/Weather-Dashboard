@@ -3,18 +3,6 @@ $( document ).ready(function() {
 
     var cityArr 
 
-
-    $("currentDay").text(moment());
-    setInterval(displayTodaysDate)
-
-    currentDate = $("#currentDay");
-    displayTodaysDate();
-
-    function displayTodaysDate() {
-        currentDate.text(moment().format('L'));
-    }
-});
-
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
     searchButton.on("click", function(e) {
@@ -90,7 +78,7 @@ $( document ).ready(function() {
        getWeather($(this).text());
     })
     getStorage();
-
+});
 
 
 
