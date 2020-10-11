@@ -8,8 +8,8 @@ $( document ).ready(function() {
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
-        cityArr.push(city)
-        localStorage.setItem("cities", JSON.stringify(cityArr))
+        cityArr.push(city);
+        localStorage.setItem("cities", JSON.stringify(cityArr));
     
         getStorage();
 
@@ -30,8 +30,8 @@ $( document ).ready(function() {
             var cityName = response.name;
            
 
-            var cityP = $("<p>").text(response.name)
-            // console.log(response.weather[0].icon)
+            var cityP = $("<p>").text(response.name);
+           
             var icon = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
 
             if (cityName.length>1){
