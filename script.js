@@ -49,7 +49,9 @@ $( document ).ready(function() {
           
 
         })
-      
+        
+        
+
     }    
     function getStorage() {
         $(".city-area").empty();
@@ -61,19 +63,22 @@ $( document ).ready(function() {
             if (noDuplicates[i].length>0){
                 var cityBtn= $("<button>").text(noDuplicates[i]).addClass("city-btn")
                 $(".city-area").append(cityBtn);  
+                $(".city-area").remove("test");
             }
         
         }
     }
+    
+    
+
+
+
     $(document).on("click",".city-btn",function() {
         // console.log($(this).text())
        getWeather($(this).text());
     })
     getStorage();
 });
-
-
-
 
 
 
