@@ -1,7 +1,8 @@
 $( document ).ready(function() {
     console.log( "ready!" );
-
+    
     var cityArr 
+    
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
@@ -10,11 +11,13 @@ $( document ).ready(function() {
         var city = $("#searchCity").val();
         cityArr.push(city);
         localStorage.setItem("cities", JSON.stringify(cityArr));
+
     
         getStorage();
 
         getWeather(city);
     });
+    
     function getWeather(city) {
         $("#currentCityName").empty();
         var queryURL= "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + city + apiKey
@@ -23,11 +26,12 @@ $( document ).ready(function() {
             method: "GET"
         })
         .then(function(response) {
-            console.log(response)
+            
             $(".temperature").html("");
             $(".humidity").html("");
             $(".windSpeed").html("");
             var cityName = response.name;
+            console.log(response.name)
            
 
             var cityP = $("<p>").text(response.name);
@@ -38,7 +42,7 @@ $( document ).ready(function() {
                 var humidity = response.main.humidity;
                 $(".humidity").html("Humidity: " + humidity + " % ");
                 var temperature = response.main.temp;
-                var temperature = (Math.floor(temperature - 273.15)*1.80+32);
+                temperature = (Math.floor(temperature - 273.15)*1.80+32);
                 
                 $(".temperature").html("Temperature: " + temperature + "&#8457");
                 var windSpeed = response.wind.speed;
@@ -78,7 +82,10 @@ $( document ).ready(function() {
        getWeather($(this).text());
     })
     getStorage();
+
 });
+
+
 
 
 
