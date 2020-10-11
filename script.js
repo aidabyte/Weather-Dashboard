@@ -1,21 +1,8 @@
-
-    var currentDate = ("#currentDay")
-    var cityArr = []
+$( document ).ready(function() {
+    console.log( "ready!" );
     
-
-
-
-
-    $("#currentDay").text(moment());
-    setInterval(displayTodaysDateAndTime, 1000)
-    currentDate = $("#currentDay");
-    displayTodaysDateAndTime();
-    function displayTodaysDateAndTime() {
-    currentDate.text(moment().format('L'));
-    }
-
+    var cityArr 
     
- 
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
@@ -34,7 +21,7 @@
     
     function getWeather(city) {
         $("#currentCityName").empty();
-        var queryURL= "http://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + city + apiKey
+        var queryURL= "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + city + apiKey
         $.ajax({
             url:queryURL,
             method: "GET"
@@ -50,7 +37,7 @@
 
             var cityP = $("<p>").text(response.name);
            
-            var icon = $("<img>").attr("src","http://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
+            var icon = $("<img>").attr("src","https://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
 
             if (cityName.length>1){
                 var humidity = response.main.humidity;
@@ -97,7 +84,7 @@
     })
     getStorage();
 
-
+});
 
 
 
