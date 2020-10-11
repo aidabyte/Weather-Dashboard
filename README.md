@@ -28,7 +28,7 @@ To get this project up and running follow the steps bellow.
 7. Press Enter. Your local clone will be created.
 
 ## Screenshot
-* [Screenshot](#Screenshot)
+![Example screenshot](Weather2.png)
 
 
 ## Features
