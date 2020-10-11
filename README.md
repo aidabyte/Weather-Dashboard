@@ -5,6 +5,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Setup](#setup)
+* [Screenshot](#Screenshot)
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
@@ -25,6 +26,9 @@ To get this project up and running follow the steps bellow.
 6. Type ‘git clone’ and then paste the URL you copied
 	- $ git clone https://github.com/aidabyte/Weather-Dashboard.git
 7. Press Enter. Your local clone will be created.
+
+## Screenshot
+* [Screenshot](#Screenshot)
 
 
 ## Features
