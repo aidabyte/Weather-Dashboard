@@ -9,7 +9,7 @@ $( document ).ready(function() {
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
-        cityArr.push(city);
+        // cityArr.push(city);
         localStorage.setItem("cities", JSON.stringify(cityArr));
 
     
