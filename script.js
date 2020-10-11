@@ -23,7 +23,7 @@ $( document ).ready(function() {
             method: "GET"
         })
         .then(function(response) {
-            console.log(response)
+            
             $(".temperature").html("");
             $(".humidity").html("");
             $(".windSpeed").html("");
