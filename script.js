@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     
 
-    var cityArr 
+    var cityArr = []
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
