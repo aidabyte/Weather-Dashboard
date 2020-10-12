@@ -8,6 +8,7 @@ $( document ).ready(function() {
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
+        console.log(city)
         cityArr.push(city)
         console.log(cityArr)
         localStorage.setItem("cities", JSON.stringify(cityArr))
