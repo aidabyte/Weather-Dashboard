@@ -2,7 +2,7 @@ $( document ).ready(function() {
     
 
     // var cityArr = []
-    var cityArr = [];
+    // var cityArr = [];
     //created a new array b/c the cityArr made my code not work
     var LocationArr = [];
 
