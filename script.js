@@ -11,9 +11,9 @@ $( document ).ready(function() {
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
-        console.log(city)
+        
         LocationsArr.push(city)
-        console.log(cityArr)
+        
         localStorage.setItem("cities", JSON.stringify(LocationArr))
     
         getStorage();
@@ -60,7 +60,7 @@ $( document ).ready(function() {
     }    
     function getStorage() {
         $(".city-area").empty();
-        cityArr = JSON.parse(localStorage.getItem("cities")) 
+        LocationsArr= JSON.parse(localStorage.getItem("cities")) 
         
         var noDuplicates = [...new Set(cityArr)]
         
