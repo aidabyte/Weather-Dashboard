@@ -4,7 +4,7 @@ $( document ).ready(function() {
     // var cityArr = []
     // var cityArr = [];
     //created a new array b/c the cityArr made my code not work
-    var LocationArr = [];
+    var LocationsArr = [];
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
@@ -12,7 +12,7 @@ $( document ).ready(function() {
         e.preventDefault();
         var city = $("#searchCity").val();
         console.log(city)
-        LocationArr.push(city)
+        LocationsArr.push(city)
         console.log(cityArr)
         localStorage.setItem("cities", JSON.stringify(LocationArr))
     
