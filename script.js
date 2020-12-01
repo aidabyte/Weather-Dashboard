@@ -1,20 +1,17 @@
 $( document ).ready(function() {
     
 
-    // var cityArr = []
-    // var cityArr = [];
-    //created a new array b/c the cityArr made my code not work
-    var LocationsArr = [];
+    var LocationsArr = []
 
     var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
-        
+        console.log(city)
         LocationsArr.push(city)
         
-        localStorage.setItem("cities", JSON.stringify(LocationArr))
+        localStorage.setItem("cities", JSON.stringify(cityArr))
     
         getStorage();
 
@@ -60,7 +57,7 @@ $( document ).ready(function() {
     }    
     function getStorage() {
         $(".city-area").empty();
-        LocationsArr= JSON.parse(localStorage.getItem("cities")) 
+        LocationsArr = JSON.parse(localStorage.getItem("cities")) 
         
         var noDuplicates = [...new Set(cityArr)]
         
