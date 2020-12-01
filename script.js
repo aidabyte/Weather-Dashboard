@@ -51,8 +51,7 @@ $( document ).ready(function() {
           
 
         })
-        
-        
+           
 
     }    
     function getStorage() {
