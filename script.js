@@ -11,7 +11,7 @@ $( document ).ready(function() {
         console.log(city)
         LocationsArr.push(city)
         
-        localStorage.setItem("cities", JSON.stringify(cityArr))
+        localStorage.setItem("cities", JSON.stringify(LocationsArr))
     
         getStorage();
 
@@ -59,7 +59,7 @@ $( document ).ready(function() {
         $(".city-area").empty();
         LocationsArr = JSON.parse(localStorage.getItem("cities")) 
         
-        var noDuplicates = [...new Set(cityArr)]
+        var noDuplicates = [...new Set(LocationsArr)]
         
         for(var i=0; i<noDuplicates.length; i++) {
             if (noDuplicates[i].length>0){
