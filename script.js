@@ -1,26 +1,29 @@
 $( document ).ready(function() {
     
 
-    var LocationsArr = []
+    var lArr = []
+    
 
-    var apiKey= "&appid=d160bb85543407b24d8ff256704cde0d";
+    var apiKey= "13da59a70b35153b31d2c096606c4719";
     var searchButton = $("#searchButton")
     searchButton.on("click", function(e) {
         e.preventDefault();
         var city = $("#searchCity").val();
-        console.log(city)
-        LocationsArr.push(city)
         
-        localStorage.setItem("cities", JSON.stringify(LocationsArr))
+        lArr.push(city)
+       
+        
+        localStorage.setItem("cities", JSON.stringify(lArr))
     
         getStorage();
 
         getWeather(city);
+        console.log(city)
     });
     function getWeather(city) {
         $("#currentCityName").empty();
-        var queryURL= "https://api.openweathermap.org/data/2.5/weather?q" + city + apiKey
-        
+        var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey
+       
         $.ajax({
             url:queryURL,
             method: "GET"
@@ -30,7 +33,10 @@ $( document ).ready(function() {
             $(".temperature").html("");
             $(".humidity").html("");
             $(".windSpeed").html("");
+            $(".coordLon").html("");
+            $(".coordLat").html("");
             var cityName = response.name;
+            console.log(cityName)
            
 
             var cityP = $("<p>").text(response.name)
@@ -47,19 +53,31 @@ $( document ).ready(function() {
                 var windSpeed = response.wind.speed;
                 $(".windSpeed").html("Wind Speed: " + windSpeed + " MPH ");
                 $("#currentCityName").append(cityP,icon);
+
+                
+
+       
             }
-
+            
           
-
+            
         })
            
 
-    }    
+    }
+    getStorage();
     function getStorage() {
         $(".city-area").empty();
-        LocationsArr = JSON.parse(localStorage.getItem("cities")) 
+        var storedCities = JSON.parse(localStorage.getItem("cities")) 
+        if (storedCities==null) {
+            storedCities=[];
+            storedCities.push(city)
+            renderCities();
+            
+        }; 
         
-        var noDuplicates = [...new Set(LocationsArr)]
+        
+        var noDuplicates = [...new Set(lArr)]
         
         for(var i=0; i<noDuplicates.length; i++) {
             if (noDuplicates[i].length>0){
@@ -72,6 +90,7 @@ $( document ).ready(function() {
     }
     
     
+    
 
 
 
@@ -79,7 +98,7 @@ $( document ).ready(function() {
        
        getWeather($(this).text());
     })
-    getStorage();
+    
 });
 
 
