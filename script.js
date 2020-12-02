@@ -3,7 +3,7 @@ $( document ).ready(function() {
 
     var LocationsArr = []
 
-    var apiKey= "&appid=13da59a70b35153b31d2c096606c4719";
+    var apiKey= "&appid=d160bb85543407b24d8ff256704cde0d";
     var searchButton = $("#searchButton")
     searchButton.on("click", function(e) {
         e.preventDefault();
@@ -19,7 +19,8 @@ $( document ).ready(function() {
     });
     function getWeather(city) {
         $("#currentCityName").empty();
-        var queryURL= "https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=" + city + apiKey
+        var queryURL= "https://api.openweathermap.org/data/2.5/weather?q" + city + apiKey
+        
         $.ajax({
             url:queryURL,
             method: "GET"
