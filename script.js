@@ -79,6 +79,7 @@ $( document ).ready(function() {
     getStorage();
     function getStorage() {
         $(".city-area").empty();
+        $(".coordlon").empty();
         var storedCities = JSON.parse(localStorage.getItem("cities")) 
         if (storedCities==null) {
             // pushes the cities to the array and shows up on page
