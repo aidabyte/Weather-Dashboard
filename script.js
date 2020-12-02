@@ -18,7 +18,7 @@ $( document ).ready(function() {
         getStorage();
 
         getWeather(city);
-        console.log(city)
+        
     });
     function getWeather(city) {
         $("#currentCityName").empty();
@@ -53,13 +53,24 @@ $( document ).ready(function() {
                 var windSpeed = response.wind.speed;
                 $(".windSpeed").html("Wind Speed: " + windSpeed + " MPH ");
                 $("#currentCityName").append(cityP,icon);
+                var lat = response.coord.lat;
+
+                var lon = response.coord.lon;
 
                 
-
+               
        
             }
-            
-          
+            $.ajax({
+                url: "https://api.openweathermap.org/data/2.5/uvi?appid=642f9e3429c58101eb516d1634bdaa4b&lat=" + lat + "&lon=" + lon,
+                method: "GET"
+            // displays UV after city is searched
+            }).then(function (response) {
+                $(".coordlon").append($("<p>").html("UV Index: <span>" + response.value + "</span>"));
+            })
+
+           
+
             
         })
            
@@ -70,6 +81,7 @@ $( document ).ready(function() {
         $(".city-area").empty();
         var storedCities = JSON.parse(localStorage.getItem("cities")) 
         if (storedCities==null) {
+            // pushes the cities to the array and shows up on page
             storedCities=[];
             storedCities.push(city)
             renderCities();
@@ -100,6 +112,8 @@ $( document ).ready(function() {
     })
     
 });
+
+
 
 
 
