@@ -12,7 +12,7 @@
 * [Contact](#contact)
 
 ## General info
-A weather dashboard that displays the weather each day.
+A weather dashboard that displays the weather each day. User enters the name of a city or state in the search field. The app will display the current temperature, humidity, wind speed, and UV Index.
 
 ## Setup
 
